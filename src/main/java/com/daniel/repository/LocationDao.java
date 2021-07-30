@@ -1,11 +1,11 @@
-package com.daniel.service;
+package com.daniel.repository;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.daniel.entity.Location;
 
-public interface LocationService {
+
+public interface LocationDao {
 	
 	void saveLocation(Location location);
 	
@@ -13,9 +13,8 @@ public interface LocationService {
 	
 	void updateLocation(Location location);
 	
-	List<Location> findAllLLocations();
+	List<Location> findAllLocations();
 	
-	Location findById(Long idLocation);
-	
+	Location findById(Long idLocation);	
 	
 }
