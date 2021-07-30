@@ -46,7 +46,7 @@ public class LocationController {
 	}
 
 	// Get
-	@GetMapping(value = "/socialMedias/{id}")
+	@GetMapping(value = "/locations/{id}")
 	public ResponseEntity<Location> getLocationById(@PathVariable("id") Long idLocation) {
 		if (idLocation == null || idLocation < 0) {
 			return new ResponseEntity(new CustomErrorType("idSocialMedia is required"), HttpStatus.CONFLICT);
