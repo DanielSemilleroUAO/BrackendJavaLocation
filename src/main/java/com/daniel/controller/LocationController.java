@@ -26,15 +26,20 @@ import com.daniel.entity.Location;
 import com.daniel.service.LocationService;
 import com.daniel.util.CustomErrorType;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @CrossOrigin
 @RestController
 @RequestMapping("api/v1")
+@Tag(name = "Service Location Controller")
 public class LocationController {
 
 	@Autowired
 	private LocationService locationService;
 
 	// Get
+	@Operation(summary = "Get all locations", description = "retrieve all locations")
 	@GetMapping("/locations")
 	public ResponseEntity<List<Location>> getLocations() {
 		List<Location> locations = new ArrayList<>();
@@ -46,6 +51,7 @@ public class LocationController {
 	}
 
 	// Get
+	@Operation(summary = "Get location by id")
 	@GetMapping(value = "/locations/{id}")
 	public ResponseEntity<Location> getLocationById(@PathVariable("id") Long idLocation) {
 		if (idLocation == null || idLocation < 0) {
@@ -60,6 +66,7 @@ public class LocationController {
 	}
 
 	// Post
+	@Operation(summary = "Create Location")
 	@PostMapping("/locations")
 	public ResponseEntity<?> createLocation(@RequestBody Location location,
 			UriComponentsBuilder uriComponentsBuilder) {
@@ -74,6 +81,7 @@ public class LocationController {
 	}
 
 	// UPDATE
+	@Operation(summary = "Update Location by Id")
 	@PatchMapping("/locations/{id}")
 	public ResponseEntity<?> updateLocation(@PathVariable("id") Long idLocation, @RequestBody Location location) {
 
@@ -96,6 +104,7 @@ public class LocationController {
 	}
 
 	// Delete
+	@Operation(summary = "Delete location by id")
 	@DeleteMapping("/locations/{id}")
 	public ResponseEntity<?> deleteLocation(@PathVariable("id") Long idLocation) {
 
