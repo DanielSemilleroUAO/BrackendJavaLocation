@@ -22,6 +22,7 @@ public class LocationDaoImpl extends AbsctractSession implements LocationDao{
 	@Override
 	public void saveLocation(Location location) {
 		// TODO Auto-generated method stub
+		location.setIdLocation((long) 0);
 		getSessionFactory().persist(location);
 	}
 

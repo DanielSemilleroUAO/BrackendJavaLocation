@@ -9,15 +9,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "location")
 public class Location {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_location")
-	@JsonIgnore
 	private Long idLocation;
 	@Column(name = "name")
 	private String name;

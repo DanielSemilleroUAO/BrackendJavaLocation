@@ -24,7 +24,7 @@ class LocationControllerTest {
 
 	@Autowired
 	private MockMvc mockMvc;
-
+	/*
 	@Test
 	public void locationControllerTest_getAllLocations() throws Exception {
 		this.mockMvc.perform(get("/api/v1/locations")).andDo(print()).andExpect(status().isOk())
@@ -52,5 +52,5 @@ class LocationControllerTest {
 	public void locationControllerTest_deleteLocation() throws Exception {
 		this.mockMvc.perform(delete("/api/v1/locations/3")).andDo(print()).andExpect(status().isOk());
 	}
-	
+	*/
 }
