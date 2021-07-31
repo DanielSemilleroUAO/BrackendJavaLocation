@@ -9,6 +9,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -34,18 +37,26 @@ class LocationControllerTest {
 	LocationDao dataServiceMock;
 	
 	@Test
-	public void calculateSumUsingDataService_basic() {
+	public void getDataLocationService_basic() {
 		when(dataServiceMock.findById((long) 1)).thenReturn(new Location("Cali",50));
 		assertEquals("Cali", locationService.findById((long) 1).getName());
 	}
 	
+	@Test
+	public void getListLocationService_basic() {
+		List<Location> locations = new ArrayList<>();
+		locations.add(new Location("", 0));
+		when(dataServiceMock.findAllLocations()).thenReturn(locations);
+		assertEquals(1, locationService.findAllLLocations().size());
+	}
 	
+	/*
 	@Test
 	public void locationControllerTest_getAllLocations() throws Exception {
 		this.mockMvc.perform(get("/api/v1/locations/8")).andDo(print()).andExpect(status().isOk())
 				.andExpect(content().string(containsString("{\"idLocation\":8,\"name\":\"Cali\",\"area\":0.0}")));
 	}
-	/*
+	
 	@Test
 	public void locationControllerTest_getAllLocationById() throws Exception {
 		this.mockMvc.perform(get("/api/v1/locations/2")).andDo(print()).andExpect(status().isOk())
