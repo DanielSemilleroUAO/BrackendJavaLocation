@@ -1,8 +1,13 @@
 package com.daniel;
 
 
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -34,13 +39,13 @@ class LocationControllerTest {
 		assertEquals("Cali", locationService.findById((long) 1).getName());
 	}
 	
-	/*
+	
 	@Test
 	public void locationControllerTest_getAllLocations() throws Exception {
-		this.mockMvc.perform(get("/api/v1/locations")).andDo(print()).andExpect(status().isOk())
-				.andExpect(content().string(containsString("[{\"idLocation\":2,\"name\":\"Bogota\",\"area\":70.0}]")));
+		this.mockMvc.perform(get("/api/v1/locations/8")).andDo(print()).andExpect(status().isOk())
+				.andExpect(content().string(containsString("{\"idLocation\":8,\"name\":\"Cali\",\"area\":0.0}")));
 	}
-	
+	/*
 	@Test
 	public void locationControllerTest_getAllLocationById() throws Exception {
 		this.mockMvc.perform(get("/api/v1/locations/2")).andDo(print()).andExpect(status().isOk())
