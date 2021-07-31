@@ -1,6 +1,7 @@
 package com.daniel;
 
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.Test;
@@ -30,7 +31,7 @@ class LocationControllerTest {
 	@Test
 	public void calculateSumUsingDataService_basic() {
 		when(dataServiceMock.findById((long) 1)).thenReturn(new Location("Cali",50));
-		//assertEquals("Cali", locationService.findById((long) 1).getName());
+		assertEquals("Cali", locationService.findById((long) 1).getName());
 	}
 	
 	/*
